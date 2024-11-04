@@ -41,12 +41,34 @@
 //     func_ex_print_result(func_ex_div_result(10, 0));
 // }
 
-mod module_hello {
-    pub fn print_hello(name: &str) {
-        println!("Hello, {}!", name);
-    }
+// mod module_hello {
+//     pub fn print_hello(name: &str) {
+//         println!("Hello, {}!", name);
+//     }
+// }
+
+// fn main() {
+//     module_hello::print_hello("Alice");
+// }
+
+// fn main() {
+//     let s = "Hello".to_string();
+//     let t = s;
+//     println!("{}", t);
+//     println!("{}", s);
+// }
+
+fn myprint<T: std::fmt::Display>(msg: &T) {
+    println!("{}", msg)
 }
 
 fn main() {
-    module_hello::print_hello("Alice");
+    let s = "Hello".to_string();
+    let s_ref = &s;
+    let s_ref2 = &s;
+    myprint(s_ref);
+    myprint(s_ref);
+
+    myprint(s_ref2);
+    myprint(s_ref2);
 }
